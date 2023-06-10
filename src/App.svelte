@@ -108,7 +108,7 @@
     };
 
     const response = await fetch(
-      `https://api.recruitly.io/api/candidate?apiKey=TEST27306FA00E70A0F94569923CD689CA9BE6CA`,
+      `https://api.recruitly.io/api/candidate?apiKey=TEST1236C4CF23E6921C41429A6E1D546AC9535`,
       {
         method: "POST",
         headers: {
