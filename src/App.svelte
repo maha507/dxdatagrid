@@ -57,8 +57,9 @@
 		  pageSize: 20,
 		},
 		onRowInserting: async (e) => {
-		  try {
 			console.log("Data being sent to API:", e.data);
+		  try {
+			
 			const response = await fetch( "https://api.recruitly.io/api/candidate",
 			  {
 				method: "POST",
