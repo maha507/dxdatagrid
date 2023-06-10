@@ -58,8 +58,8 @@
 		},
 		onRowInserting: async (e) => {
 		  try {
-			const response = await fetch(
-			  "https://api.recruitly.io/api/candidate",
+			console.log("Data being sent to API:", e.data);
+			const response = await fetch( "https://api.recruitly.io/api/candidate",
 			  {
 				method: "POST",
 				headers: {
@@ -68,6 +68,7 @@
 				},
 				body: JSON.stringify(e.data),
 			  }
+			  
 			);
   
 			const responseData = await response.json();
@@ -87,7 +88,7 @@
 			const response = await fetch(
 			  `https://api.recruitly.io/api/candidate/${e.key}`,
 			  {
-				method: "PUT",
+				method: "POST",
 				headers: {
 				  "Content-Type": "application/json",
 				  apiKey: "TEST9349C0221517DA4942E39B5DF18C68CDA154",
