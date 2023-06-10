@@ -98,10 +98,11 @@
 			  console.error("Failed to add record:", error);
 			}
 		  },
+		  
 		  onRowUpdating: async (e) => {
   console.log("Data being sent to API:", e.newData);
   try {
-    const updatedData = {
+    const newData = {
       name: e.newData.name,
       email: e.newData.email,
       phone: e.newData.phone
@@ -115,29 +116,27 @@
           "Content-Type": "application/json",
           apiKey: "TEST9349C0221517DA4942E39B5DF18C68CDA154",
         },
-        body: JSON.stringify(updatedData),
+        body: JSON.stringify(newData),
       }
     );
 
     const responseData = await response.json();
     if (response.ok) {
-      const updatedItemIndex = gridData.findIndex((item) => item.id === e.key);
-      gridData[updatedItemIndex] = {
-        id: e.key,
+      const newItem = {
+        id: responseData.id,
         name: e.newData.name,
         email: e.newData.email,
         phone: e.newData.phone,
       };
+      gridData.push(newItem);
       dataGrid.refresh();
     } else {
-      console.error("Failed to update record:", responseData.error);
+      console.error("Failed to insert record:", responseData.error);
     }
   } catch (error) {
-    console.error("Failed to update record:", error);
+    console.error("Failed to insert record:", error);
   }
 },
-
-
 
 		  onRowRemoving: async (e) => {
 			console.log("Data being sent to API:", e.data);
