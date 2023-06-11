@@ -111,15 +111,18 @@
         body: JSON.stringify(e.newData),
       }
     );
+	const responseData = await response.json();
+	if (response.ok) {
+  	const updatedItemIndex = gridData.findIndex((item) => item.id === e.key);
+ 		 if (updatedItemIndex > -1) {
+  	  // Replace the old item with the updated item from the response
+  	  gridData[updatedItemIndex] = responseData;
+  	  dataGrid.refresh();
+ 	 }
+	} else {
+  console.error("Failed to update record:", responseData.error);
+}
 
-    const responseData = await response.json();
-    if (response.ok) {
-      const updatedItemIndex = gridData.findIndex((item) => item.id === e.key);
-      gridData[updatedItemIndex] = e.newData;
-      dataGrid.refresh();
-    } else {
-      console.error("Failed to update record:", responseData.error);
-    }
   } catch (error) {
     console.error("Failed to update record:", error);
   }
@@ -138,7 +141,7 @@
 				  },
 				}
 			  );
-  
+		
 			  if (response.ok) {
 				const removedItemIndex = gridData.findIndex((item) => item.id === e.key);
 				gridData.splice(removedItemIndex, 1);
