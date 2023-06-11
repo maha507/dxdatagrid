@@ -87,7 +87,7 @@
 		  },
 	   onRowUpdating: async (e) => {
 	try {
-	  console.log(e.Data);
+	  console.log(e.newData);
 	  const response = await fetch(
 		`https://api.recruitly.io/api/candidate?apiKey=TEST9349C0221517DA4942E39B5DF18C68CDA154`,
 		{
@@ -95,13 +95,13 @@
 		  headers: {
 			"Content-Type": "application/json",
 		  },
-		  body: JSON.stringify(e.Data),
+		  body: JSON.stringify(e.newData),
 		}
 	  );
 	  const responseData = await response.json();
 	  if (response.ok) {
 		const updatedItemIndex = gridData.findIndex((item) => item.id === e.key);
-		gridData[updatedItemIndex] = e.Data;
+		gridData[updatedItemIndex] = e.newData;
 		dataGrid.refresh();
 	  } else {
 		console.error("Failed to update record:", responseData.error);
@@ -111,30 +111,30 @@
 	}
   },
   
+
+
 		onRowRemoving: async (e) => {
-		  try {
-			const response = await fetch(
-			  `https://api.recruitly.io/api/candidate/${e.key}`,
-			  {
-				method: "DELETE",
-				headers: {
-				  "Content-Type": "application/json",
-				  apiKey: "TEST9349C0221517DA4942E39B5DF18C68CDA154",
-				},
+			  console.log("Data being sent to API:", e.data);
+			  try {
+			  const response = await fetch(
+				`https://api.recruitly.io/api/candidate/${e.data.id}?apiKey=TEST27306FA00E70A0F94569923CD689CA9BE6CA`,
+				{
+				  method: "DELETE",
+				}
+			  );
+			  if (response.ok) {
+				const removedItemIndex = gridData.findIndex((item) => item.id === e.key);
+				if (removedItemIndex > -1) {
+				  gridData.splice(removedItemIndex, 1);
+				  dataGrid.refresh();
+				}
+			  } else {
+				console.error("Failed to delete record.");
 			  }
-			);
-  
-			if (response.ok) {
-			  const removedItemIndex = gridData.findIndex((item) => item.id === e.key);
-			  gridData.splice(removedItemIndex, 1);
-			  dataGrid.refresh();
-			} else {
-			  console.error("Failed to delete record.");
+			} catch (error) {
+			  console.error("Failed to delete record:", error);
 			}
-		  } catch (error) {
-			console.error("Failed to delete record:", error);
-		  }
-		},
+		  },
 		onInitialized: () => {
 		  // Function called when the grid is initialized
 		  // ...
