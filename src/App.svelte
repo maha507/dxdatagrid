@@ -89,8 +89,7 @@
     console.log(e.newData);
     // Make a copy of the edited data
     const updatedData = { ...e.newData };
-    delete updatedData.id; // Remove the 'id' property from the updated data
-
+   
     const response = await fetch(
       `https://api.recruitly.io/api/candidate/${e.data.id}?apiKey=TEST27306FA00E70A0F94569923CD689CA9BE6CA`,
       {
@@ -104,7 +103,7 @@
     const responseData = await response.json();
     if (response.ok) {
       const updatedItemIndex = gridData.findIndex((item) => item.id === e.key);
-      gridData[updatedItemIndex] = e.newData;
+      gridData[updatedItemIndex] = updatedData;
       dataGrid.refresh();
     } else {
       console.error("Failed to update record:", responseData.error);
