@@ -87,7 +87,7 @@
 		  },
 	   onRowUpdating: async (e) => {
 	try {
-	  console.log(e.newData);
+	  console.log(e.Data);
 	  const response = await fetch(
 		`https://api.recruitly.io/api/candidate?apiKey=TEST9349C0221517DA4942E39B5DF18C68CDA154`,
 		{
@@ -95,13 +95,13 @@
 		  headers: {
 			"Content-Type": "application/json",
 		  },
-		  body: JSON.stringify(e.newData),
+		  body: JSON.stringify(e.Data),
 		}
 	  );
 	  const responseData = await response.json();
 	  if (response.ok) {
 		const updatedItemIndex = gridData.findIndex((item) => item.id === e.key);
-		gridData[updatedItemIndex] = e.newData;
+		gridData[updatedItemIndex] = e.Data;
 		dataGrid.refresh();
 	  } else {
 		console.error("Failed to update record:", responseData.error);
