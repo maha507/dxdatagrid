@@ -84,9 +84,9 @@
 			  console.error("Failed to add record:", error);
 			}
 		  },
-		  onRowUpdating: async (e) => {
+		onRowUpdating: async (e) => {
 		try {
-	  console.log(e.newData);
+	  console.log(e);
 	  const response = await fetch(
 		`https://api.recruitly.io/api/candidate?apiKey=TEST9349C0221517DA4942E39B5DF18C68CDA154`,
 		{
