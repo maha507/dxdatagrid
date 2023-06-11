@@ -89,11 +89,11 @@
     console.log(e.newData);
     // Make a copy of the edited data
     const updatedData = { ...e.newData };
-   
+
     const response = await fetch(
       `https://api.recruitly.io/api/candidate/${e.data.id}?apiKey=TEST27306FA00E70A0F94569923CD689CA9BE6CA`,
       {
-        method: "POST", // Use the PUT method for updating the record
+        method: "PUT", // Use the PUT method for updating the record
         headers: {
           "Content-Type": "application/json",
         },
@@ -102,7 +102,7 @@
     );
     const responseData = await response.json();
     if (response.ok) {
-      const updatedItemIndex = gridData.findIndex((item) => item.id === e.key);
+      const updatedItemIndex = gridData.findIndex((item) => item.id === e.data.id);
       gridData[updatedItemIndex] = updatedData;
       dataGrid.refresh();
     } else {
@@ -112,6 +112,7 @@
     console.error("Failed to update record:", error);
   }
 },
+
 
 		onRowRemoving: async (e) => {
 			  console.log("Data being sent to API:", e.data);
