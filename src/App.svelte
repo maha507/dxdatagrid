@@ -103,7 +103,7 @@
   	const updatedItemIndex = gridData.findIndex((item) => item.id === e.key);
  		 if (updatedItemIndex > -1) {
   	  // Replace the old item with the updated item from the response
-  	  gridData[updatedItemIndex] = responseData;
+  	  gridData[updatedItemIndex] = e.newdata;
   	  dataGrid.refresh();
  	 }
 	} else {
