@@ -141,8 +141,6 @@
 		  // ...
 		},
 	  });
-  
-	  dataGrid.render();
 	});
   </script>
   
