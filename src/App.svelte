@@ -93,7 +93,7 @@
 			console.log(newData);
   
 			const response = await fetch(`https://api.recruitly.io/api/candidate/${e.key.id}?apiKey=TEST9349C0221517DA4942E39B5DF18C68CDA154`, {
-			  method: "PUT",
+			  method: "POST",
 			  headers: {
 				"Content-Type": "application/json",
 			  },
