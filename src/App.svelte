@@ -88,7 +88,7 @@
 			try {
 	 		 console.log("Data being sent to API:", e.newData);
 	 		 const response = await fetch(
-					`https://api.recruitly.io/api/candidate/${e.data.id}?apiKey=TEST9349C0221517DA4942E39B5DF18C68CDA154`,
+					`https://api.recruitly.io/api/candidate/${e.newData.id}?apiKey=TEST9349C0221517DA4942E39B5DF18C68CDA154`,
 						{
 		 				 method: "POST",
 		  				headers: {
