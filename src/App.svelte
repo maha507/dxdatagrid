@@ -18,7 +18,7 @@
 		  gridData = jsonData.map((item) => ({
 			firstName: item.firstName,
 			email: item.email,
-			phone: item.mobile,
+			mobile: item.mobile,
 			id: item.id,
 		  }));
   
@@ -39,7 +39,7 @@
 		  columns: [
 			{ dataField: "firstName", caption: "firstName", width: 200 },
 			{ dataField: "email", caption: "Email", width: 200 },
-			{ dataField: "phone", caption: "Mobile", width: 150 },
+			{ dataField: "mobile", caption: "mobile", width: 150 },
 			// Define other columns as needed
 		  ],
 		  showBorders: true,
@@ -158,7 +158,7 @@
 		}
 	  );
   
-	  dataGrid.render();
+	 
 	};
   </script>
   
