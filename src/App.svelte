@@ -85,30 +85,35 @@
 			}
 		  },
 		  onRowUpdating: async (e) => {
-	try {
-	  console.log(e.newData);
-	  const response = await fetch(
-		`https://api.recruitly.io/api/candidate/${e.data.id}?apiKey=TEST27306FA00E70A0F94569923CD689CA9BE6CA`,
-		{
-		  method: "POST",
-		  headers: {
-			"Content-Type": "application/json",
-		  },
-		  body: JSON.stringify(e.newData),
-		}
-	  );
-	  const responseData = await response.json();
-	  if (response.ok) {
+  try {
+    console.log(e.newData);
+    // Make a copy of the edited data
+    const updatedData = { ...e.newData };
+    delete updatedData.id; // Remove the 'id' property from the updated data
+
+    const response = await fetch(
+      `https://api.recruitly.io/api/candidate/${e.data.id}?apiKey=TEST27306FA00E70A0F94569923CD689CA9BE6CA`,
+      {
+        method: "PUT", // Use the PUT method for updating the record
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(updatedData),
+      }
+    );
+    const responseData = await response.json();
+    if (response.ok) {
       const updatedItemIndex = gridData.findIndex((item) => item.id === e.key);
       gridData[updatedItemIndex] = e.newData;
       dataGrid.refresh();
-	  } else {
-		console.error("Failed to update record:", responseData.error);
-	  }
-	} catch (error) {
-	  console.error("Failed to update record:", error);
-	}
-  },
+    } else {
+      console.error("Failed to update record:", responseData.error);
+    }
+  } catch (error) {
+    console.error("Failed to update record:", error);
+  }
+},
+
 		onRowRemoving: async (e) => {
 			  console.log("Data being sent to API:", e.data);
 			  try {
