@@ -103,7 +103,7 @@
     const response = await fetch(
       `https://api.recruitly.io/api/candidate?apiKey=TEST27306FA00E70A0F94569923CD689CA9BE6CA`,
       {
-        method: "POST",
+        method: "PUT",
         headers: {
           "Content-Type": "application/json",
           apiKey: "TEST9349C0221517DA4942E39B5DF18C68CDA154",
@@ -114,7 +114,7 @@
 
     const responseData = await response.json();
     if (response.ok) {
-      const updatedItemIndex = gridData.findIndex((item) => item.id === e.key);
+      const updatedItemIndex = gridData.findIndex((item) => item.name === e.key);
       gridData[updatedItemIndex] = e.newData;
       dataGrid.refresh();
     } else {
