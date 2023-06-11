@@ -18,7 +18,7 @@
 		firstName: item.firstName,
 		surname:item.surname,
 		email: item.email,
-		phone: item.mobile,
+		mobile: item.mobile,
 	  }));
   
 	  const dataGrid = new DevExpress.ui.dxDataGrid(document.getElementById("dataGrid"), {
@@ -28,7 +28,7 @@
 		  { dataField: "firstName", caption: "firstName", width: 200 },
 		  { dataField: "surname", caption: "surname", width: 200 },
 		  { dataField: "email", caption: "Email", width: 200 },
-		  { dataField: "phone", caption: "Mobile", width: 150 },
+		  { dataField: "mobile", caption: "mobile", width: 150 },
 		  // Define other columns as needed
 		],
 		showBorders: true,
@@ -101,6 +101,7 @@
 	  const responseData = await response.json();
 	  if (response.ok) {
 		const updatedItemIndex = gridData.findIndex((item) => item.id === e.key);
+		gridData.push(e.newdata);
 		gridData[updatedItemIndex] = e.newData;
 		dataGrid.refresh();
 	  } else {
