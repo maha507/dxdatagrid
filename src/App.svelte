@@ -116,7 +116,7 @@
 				);
 				e.data.firstName = responseData.firstName;
 				e.data.id = responseData.id;
-				gridData.push(e.data);
+				gridData.push(e.newdata);
 				gridData[updatedItemIndex] = responseData;
 				dataGrid.refresh();
 			  } else {
