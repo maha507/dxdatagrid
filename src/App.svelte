@@ -76,7 +76,7 @@
 				  method: "POST",
 				  headers: {
 					"Content-Type": "application/json",
-					apiKey: "TEST9349C0221517DA4942E39B5DF18C68CDA154",
+			
 				  },
 				  body: JSON.stringify(e.data),
 				}
@@ -106,7 +106,7 @@
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          apiKey: "TEST27306FA00E70A0F94569923CD689CA9BE6CA",
+         
         },
         body: JSON.stringify(e.newData),
       }
@@ -132,12 +132,12 @@
 			console.log("Data being sent to API:", e.data);
 			try {
 			  const response = await fetch(
-				`https://api.recruitly.io/api/candidate/delete?apiKey=TEST9349C0221517DA4942E39B5DF18C68CDA154`,
+				`https://api.recruitly.io/api/candidate?apiKey=TEST27306FA00E70A0F94569923CD689CA9BE6CA`,
 				{
 				  method: "DELETE",
 				  headers: {
 					"Content-Type": "application/json",
-					apiKey: "TEST9349C0221517DA4942E39B5DF18C68CDA154",
+					
 				  },
 				}
 			  );
