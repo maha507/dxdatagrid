@@ -115,11 +115,12 @@
 		} else {
 			console.error("Failed to update record:", responseData.error);
 		}
-	} catch (error) {
+	} 
+	catch (error) {
 		console.error("Failed to update record:", error);
 	}
-},
 
+},
   
 	onRowRemoving: async (e) => {
 			  console.log("Data being sent to API:", e.data);
@@ -143,11 +144,7 @@
 			  console.error("Failed to delete record:", error);
 			}
 		  },
-		onInitialized: () => {
-		  // Function called when the grid is initialized
-		  // ...
-		},
-	  });
+		});
 	});
   </script>
   
