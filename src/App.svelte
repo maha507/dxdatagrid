@@ -61,7 +61,7 @@
 			console.log("Data being sent to API:", e.data);
 			try {
 			  const response = await fetch(
-				"https://api.recruitly.io/api/candidate?apiKey=TEST27306FA00E70A0F94569923CD689CA9BE6CA",
+				"https://api.recruitly.io/api/candidate?apiKey=TEST9349C0221517DA4942E39B5DF18C68CDA154",
 				{
 				  method: "POST",
 				  headers: {
@@ -98,7 +98,7 @@
 		console.log(newData);
 		
 		const response = await fetch(
-			`https://api.recruitly.io/api/candidate/${e.key.id}?apiKey=TEST9349C0221517DA4942E39B5DF18C68CDA154`,
+			`https://api.recruitly.io/api/candidateapiKey=TEST9349C0221517DA4942E39B5DF18C68CDA154`,
 			{
 				method: "POST",
 				headers: {
