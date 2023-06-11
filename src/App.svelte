@@ -87,6 +87,20 @@
 		onRowUpdating: async (e) => {
 		try {
 	  console.log(e);
+	 
+var newData = {
+
+id : e.key.id,
+
+firstName : e.newData.firstName,
+
+surName : e.newData.surname ,
+
+email : e.newData.email,
+
+mobile : e.newData.mobile,
+
+}
 	  const response = await fetch(
 		`https://api.recruitly.io/api/candidate?apiKey=TEST9349C0221517DA4942E39B5DF18C68CDA154`,
 		{
@@ -94,7 +108,7 @@
 		  headers: {
 			"Content-Type": "application/json",
 		  },
-		  body: JSON.stringify(e.newData),
+		  body: JSON.stringify(newData),
 		}
 	  );
 	  const responseData = await response.json();
