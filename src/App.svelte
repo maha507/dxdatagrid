@@ -101,6 +101,7 @@ email : e.newData.email,
 mobile : e.newData.mobile,
 
 }
+console.log(newData)
 	  const response = await fetch(
 		`https://api.recruitly.io/api/candidate?apiKey=TEST9349C0221517DA4942E39B5DF18C68CDA154`,
 		{
