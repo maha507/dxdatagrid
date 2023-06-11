@@ -99,10 +99,9 @@
 	  );
 	  const responseData = await response.json();
 	  if (response.ok) {
-		const updatedItemIndex = gridData.findIndex((item) => item.id === e.key);
-		gridData.push(e.newdata);
-		gridData[updatedItemIndex] = e.newData;
-		dataGrid.refresh();
+      const updatedItemIndex = gridData.findIndex((item) => item.id === e.key);
+      gridData[updatedItemIndex] = e.newData;
+      dataGrid.refresh();
 	  } else {
 		console.error("Failed to update record:", responseData.error);
 	  }
