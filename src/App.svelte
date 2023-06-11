@@ -94,7 +94,7 @@
     const response = await fetch(
       `https://api.recruitly.io/api/candidate/${e.data.id}?apiKey=TEST27306FA00E70A0F94569923CD689CA9BE6CA`,
       {
-        method: "PUT", // Use the PUT method for updating the record
+        method: "POST", // Use the PUT method for updating the record
         headers: {
           "Content-Type": "application/json",
         },
