@@ -97,11 +97,11 @@
 		  },
   
 		  
-	  onRowUpdating: async (e) => {
-	  console.log("Data sent to API:", e.newData);
- 	 try {
+		  onRowUpdating: async (e) => {
+  console.log("Data sent to API:", e.newData);
+  try {
     const response = await fetch(
-      `https://api.recruitly.io/api/candidate?apiKey=TEST27306FA00E70A0F94569923CD689CA9BE6CA`,
+      `https://api.recruitly.io/api/candidate/${e.key}?apiKey=TEST27306FA00E70A0F94569923CD689CA9BE6CA`,
       {
         method: "PUT",
         headers: {
@@ -114,7 +114,7 @@
 
     const responseData = await response.json();
     if (response.ok) {
-      const updatedItemIndex = gridData.findIndex((item) => item.name === e.key);
+      const updatedItemIndex = gridData.findIndex((item) => item.id === e.key);
       gridData[updatedItemIndex] = e.newData;
       dataGrid.refresh();
     } else {
@@ -125,7 +125,6 @@
   }
 },
 
-  
 		  onRowRemoving: async (e) => {
 			console.log("Data being sent to API:", e.data);
 			try {
