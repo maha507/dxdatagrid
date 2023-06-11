@@ -114,6 +114,9 @@
 				const updatedItemIndex = gridData.findIndex(
 				  (item) => item.id === e.key
 				);
+				e.data.firstName = responseData.firstName;
+				e.data.id = responseData.id;
+				gridData.push(e.data);
 				gridData[updatedItemIndex] = responseData;
 				dataGrid.refresh();
 			  } else {
