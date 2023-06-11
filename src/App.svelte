@@ -84,9 +84,9 @@
 			  console.error("Failed to add record:", error);
 			}
 		  },
-		onRowUpdating: async (e) => {
-		try {
-	  console.log(e);
+	onRowUpdating: async (e) => {
+	try {
+	console.log(e);
 	 
 	var newData = {
 	id : e.key.id,
