@@ -90,7 +90,7 @@
     
     if (e.data && e.data.id) {
       const response = await fetch(
-        `https://api.recruitly.io/api/candidate/${e.data.id}?apiKey=TEST9349C0221517DA4942E39B5DF18C68CDA154`,
+        `https://api.recruitly.io/api/candidate/${e.newDataa.id}?apiKey=TEST9349C0221517DA4942E39B5DF18C68CDA154`,
         {
           method: "POST", // Use the PUT method for updating the record
           headers: {
