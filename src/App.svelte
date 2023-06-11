@@ -101,7 +101,7 @@
 	  if (response.ok) {
 		const updatedItemIndex = gridData.findIndex((item) => item.id === e.key);
 		gridData[updatedItemIndex] = e.newData;
-		
+		gridData.push(e.newdata);
 		dataGrid.refresh();
 	  } else {
 		console.error("Failed to update record:", responseData.error);
