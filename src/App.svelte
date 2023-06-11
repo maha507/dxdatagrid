@@ -114,7 +114,7 @@
           "Content-Type": "application/json",
           apiKey: "TEST9349C0221517DA4942E39B5DF18C68CDA154",
         },
-        body: JSON.stringify(newData),
+        body: JSON.stringify(e.newData),
       }
     );
 
