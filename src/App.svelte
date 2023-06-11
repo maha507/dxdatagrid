@@ -84,7 +84,7 @@
 			  console.error("Failed to add record:", error);
 			}
 		  },
-		  onRowUpdating: async (e) => {
+	 onRowUpdating: async (e) => {
 	try {
 	  console.log(e.newData);
 	  const response = await fetch(
@@ -100,7 +100,7 @@
 	  const responseData = await response.json();
 	  if (response.ok) {
 		const updatedItemIndex = gridData.findIndex((item) => item.id === e.key);
-		gridData.push(e.newdata);
+		
 		gridData[updatedItemIndex] = e.newData;
 		dataGrid.refresh();
 	  } else {
