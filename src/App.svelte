@@ -126,7 +126,7 @@
 },
 
 		  onRowRemoving: async (e) => {
-			console.log("Data being sent to API:", e.data);
+			console.log("Data being sent to API:", e.newdata);
 			try {
 			  const response = await fetch(
 				`https://api.recruitly.io/api/candidate/delete?apiKey=TEST9349C0221517DA4942E39B5DF18C68CDA154`,
