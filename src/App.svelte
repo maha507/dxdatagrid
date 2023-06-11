@@ -99,7 +99,7 @@
 	  );
 	  const responseData = await response.json();
 	  if (response.ok) {
-		const updatedItemIndex = gridData.findIndex((item) => item.id === e.key);
+		const updatedItemIndex = gridData.findIndex((item) => item.id === e.newdata.id);
 		
 		gridData[updatedItemIndex] = e.newData;
 		dataGrid.refresh();
