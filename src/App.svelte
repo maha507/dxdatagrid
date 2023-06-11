@@ -84,7 +84,7 @@
   
 			  const responseData = await response.json();
 			  if (response.ok) {
-				e.data.id = responseData.id;
+				
 				e.data.name=responseData.name;
 				gridData.push(e.data);
 				dataGrid.refresh();
