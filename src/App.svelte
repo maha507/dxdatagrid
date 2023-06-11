@@ -97,12 +97,12 @@
   
 		  
 		  onRowUpdating: async (e) => {
-  console.log("Data being sent to API:", e.newData);
-  try {
-    const updatedData = {
-      name: e.newData.name,
-      email: e.newData.email,
-      phone: e.newData.phone,
+ 		 console.log("Data being sent to API:", e.Data);
+  		try {
+   		 const updatedData = {
+   	    name: e.newData.name,
+   	    email: e.newData.email,
+   		phone: e.newData.phone,
     };
 
     const response = await fetch(
