@@ -94,7 +94,7 @@ firstName : e.newData.firstName === undefined ? e.oldData.firstName : e.newData.
 surname : e.newData.surname=== undefined ? e.oldData.surname : e.newData.surname ,
 email : e.newData.email === undefined ? e.oldData.email : e.newData.email,
 mobile : e.newData.mobile === undefined ? e.oldData.mobile :e.mobile.email,
-};
+}
 
 
 console.log(newData)
