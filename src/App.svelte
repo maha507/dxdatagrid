@@ -110,7 +110,6 @@
 	  console.error("Failed to update record:", error);
 	}
   },
-},
 
 		onRowRemoving: async (e) => {
 			  console.log("Data being sent to API:", e.data);
