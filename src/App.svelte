@@ -16,7 +16,7 @@
 		  jsonData = responseData.data;
   
 		  gridData = jsonData.map((item) => ({
-			firstName: item.fistName,
+			firstName: item.firstName,
 			email: item.email,
 			phone: item.mobile,
 		  }));
@@ -85,7 +85,7 @@
 			  const responseData = await response.json();
 			  if (response.ok) {
 				
-				e.data.name=responseData.name;
+				e.data.firstName=responseData.fistName;
 				gridData.push(e.data);
 				dataGrid.refresh();
 			  } else {
